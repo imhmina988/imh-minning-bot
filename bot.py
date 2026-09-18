@@ -139,8 +139,7 @@ async def main():
     await app.run_polling()
 
 
-if __name__ == "__main__":
-    def main():
+def main():
     if not TOKEN:
         raise RuntimeError("BOT_TOKEN environment variable is missing.")
 
@@ -156,6 +155,7 @@ if __name__ == "__main__":
 
     print("IMH MINNING bot is running...")
     app.run_polling()
+
 
 if __name__ == "__main__":
     main()
