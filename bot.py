@@ -140,4 +140,22 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    def main():
+    if not TOKEN:
+        raise RuntimeError("BOT_TOKEN environment variable is missing.")
+
+    app = Application.builder().token(TOKEN).build()
+
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("balance", balance))
+    app.add_handler(CommandHandler("mining", mining))
+    app.add_handler(CommandHandler("deposit", deposit))
+    app.add_handler(CommandHandler("withdraw", withdraw))
+    app.add_handler(CommandHandler("referral", referral))
+    app.add_handler(CommandHandler("help", help_command))
+
+    print("IMH MINNING bot is running...")
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
